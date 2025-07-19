@@ -17,26 +17,56 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Medical brand colors from logo */
+    --primary: 193 89% 25%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 193 89% 35%;
+    --primary-dark: 193 89% 15%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Cool Grey-Blue palette as specified */
+    --secondary: 212 20% 64%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 210 15% 72%;
+    --secondary-dark: 214 25% 52%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Neutral greys */
+    --muted: 210 9% 71%;
+    --muted-foreground: 213 8% 52%;
+    --muted-light: 210 9% 81%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 193 89% 35%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 210 15% 88%;
+    --input: 210 15% 88%;
+    --ring: 193 89% 25%;
 
-    --radius: 0.5rem;
+    /* Medical emergency red */
+    --emergency: 0 84% 60%;
+    --emergency-foreground: 0 0% 100%;
+
+    /* Success green for testimonials */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-light)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 100%);
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px hsl(var(--primary) / 0.1);
+    --shadow-medium: 0 8px 30px hsl(var(--primary) / 0.15);
+    --shadow-strong: 0 12px 40px hsl(var(--primary) / 0.2);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +130,57 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+
+  /* Medical website specific styles */
+  .hero-diagonal {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  }
+
+  .section-angled {
+    clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 95%);
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-[var(--shadow-medium)] hover:-translate-y-1;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary-dark shadow-[var(--shadow-soft)] transition-all duration-300 hover:shadow-[var(--shadow-medium)] hover:-translate-y-0.5;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary-dark shadow-[var(--shadow-soft)] transition-all duration-300 hover:shadow-[var(--shadow-medium)];
+  }
+
+  .btn-emergency {
+    @apply bg-emergency text-emergency-foreground hover:bg-red-600 shadow-[var(--shadow-soft)] transition-all duration-300 animate-pulse;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent;
+  }
+}
+
+@layer components {
+  .medical-card {
+    @apply bg-card border border-border rounded-lg p-6 shadow-[var(--shadow-soft)] card-hover;
+  }
+
+  .expertise-icon {
+    @apply w-12 h-12 text-primary mb-4 transition-all duration-300 group-hover:text-primary-light group-hover:scale-110;
+  }
+
+  .nav-link {
+    @apply text-muted-foreground hover:text-primary transition-colors duration-300 font-medium;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-foreground mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed;
   }
 }
