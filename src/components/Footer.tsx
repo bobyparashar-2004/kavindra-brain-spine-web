@@ -179,8 +179,7 @@ const Footer = () => {
           </div>
           
           <div className="mt-4 pt-4 border-t border-primary-foreground/20 text-center text-sm text-primary-foreground/60">
-            <p>This website is for informational purposes only and does not constitute medical advice. 
-               Always consult with a qualified healthcare provider for medical concerns.</p>
+            <p>Designed and Developed by Branding Pioneers</p>
           </div>
         </div>
       </div>

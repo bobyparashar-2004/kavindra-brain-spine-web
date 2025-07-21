@@ -58,7 +58,7 @@ const Testimonials = () => {
 
   return (
     <section id="testimonials" className="py-20 bg-gradient-to-br from-primary/5 to-secondary/5">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="section-title">
             <span className="gradient-text">Patient Success Stories</span>
@@ -134,36 +134,6 @@ const Testimonials = () => {
           </div>
         </div>
 
-        {/* Testimonial Grid */}
-        <div className="grid md:grid-cols-3 gap-6">
-          {testimonials.slice(0, 3).map((testimonial, index) => (
-            <div key={index} className="medical-card">
-              <div className="flex items-center gap-3 mb-4">
-                <img 
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-12 h-12 rounded-full object-cover"
-                />
-                <div>
-                  <div className="font-semibold text-foreground">{testimonial.name}</div>
-                  <div className="text-sm text-muted-foreground">{testimonial.location}</div>
-                </div>
-              </div>
-              
-              <div className="flex mb-3">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                ))}
-              </div>
-              
-              <p className="text-muted-foreground text-sm leading-relaxed mb-3">
-                "{testimonial.text.slice(0, 120)}..."
-              </p>
-              
-              <div className="text-xs text-primary font-medium">{testimonial.condition}</div>
-            </div>
-          ))}
-        </div>
 
         {/* Video Testimonials Placeholder */}
         <div className="mt-16 text-center">

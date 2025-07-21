@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   return (
-    <section id="home" className="relative bg-gradient-to-br from-primary via-primary-light to-accent min-h-[50vh] hero-diagonal overflow-hidden">
+    <section id="home" className="relative bg-gradient-to-br from-primary via-primary-light to-accent min-h-[50vh] overflow-hidden">
       <div className="absolute inset-0 bg-black/10"></div>
       
       <div className="relative container mx-auto px-4 py-8 lg:py-12">
