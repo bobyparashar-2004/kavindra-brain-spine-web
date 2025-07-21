@@ -57,8 +57,8 @@ const Testimonials = () => {
   };
 
   return (
-    <section id="testimonials" className="py-16 bg-gradient-to-br from-primary/5 to-secondary/5">
-      <div className="container mx-auto px-6">
+    <section id="testimonials" className="py-20 bg-gradient-to-br from-primary/5 to-secondary/5">
+      <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="section-title">
             <span className="gradient-text">Patient Success Stories</span>
@@ -134,38 +134,57 @@ const Testimonials = () => {
           </div>
         </div>
 
+        {/* Testimonial Grid */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {testimonials.slice(0, 3).map((testimonial, index) => (
+            <div key={index} className="medical-card">
+              <div className="flex items-center gap-3 mb-4">
+                <img 
+                  src={testimonial.image}
+                  alt={testimonial.name}
+                  className="w-12 h-12 rounded-full object-cover"
+                />
+                <div>
+                  <div className="font-semibold text-foreground">{testimonial.name}</div>
+                  <div className="text-sm text-muted-foreground">{testimonial.location}</div>
+                </div>
+              </div>
+              
+              <div className="flex mb-3">
+                {[...Array(testimonial.rating)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                ))}
+              </div>
+              
+              <p className="text-muted-foreground text-sm leading-relaxed mb-3">
+                "{testimonial.text.slice(0, 120)}..."
+              </p>
+              
+              <div className="text-xs text-primary font-medium">{testimonial.condition}</div>
+            </div>
+          ))}
+        </div>
 
-        {/* Video Testimonials Carousel */}
-        <div className="mt-12 text-center">
+        {/* Video Testimonials Placeholder */}
+        <div className="mt-16 text-center">
           <h3 className="text-2xl font-bold text-foreground mb-4">Video Testimonials</h3>
           <p className="text-muted-foreground mb-8">Watch real patients share their recovery journeys</p>
           
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-muted-light rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300">
-                <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Quote className="w-8 h-8 text-primary" />
-                </div>
-                <h4 className="font-semibold mb-2">Brain Surgery Recovery</h4>
-                <p className="text-sm text-muted-foreground mb-4">Patient shares complete recovery experience</p>
-                <Button variant="outline" size="sm">Play Video</Button>
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <div className="bg-muted-light rounded-xl p-8 text-center">
+              <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Quote className="w-10 h-10 text-primary" />
               </div>
-              
-              <div className="bg-muted-light rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300">
-                <div className="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Quote className="w-8 h-8 text-secondary" />
-                </div>
-                <h4 className="font-semibold mb-2">Spine Surgery Success</h4>
-                <p className="text-sm text-muted-foreground mb-4">Back to normal life after surgery</p>
-                <Button variant="outline" size="sm">Play Video</Button>
-              </div>
+              <h4 className="font-semibold mb-2">Brain Surgery Recovery</h4>
+              <p className="text-sm text-muted-foreground">Patient shares complete recovery experience</p>
             </div>
             
-            {/* Pagination bullets */}
-            <div className="flex justify-center gap-2 mt-6">
-              <div className="w-3 h-3 bg-primary rounded-full"></div>
-              <div className="w-3 h-3 bg-muted rounded-full"></div>
-              <div className="w-3 h-3 bg-muted rounded-full"></div>
+            <div className="bg-muted-light rounded-xl p-8 text-center">
+              <div className="w-20 h-20 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Quote className="w-10 h-10 text-secondary" />
+              </div>
+              <h4 className="font-semibold mb-2">Spine Surgery Success</h4>
+              <p className="text-sm text-muted-foreground">Back to normal life after surgery</p>
             </div>
           </div>
         </div>

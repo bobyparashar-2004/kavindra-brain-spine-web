@@ -34,8 +34,8 @@ const Expertise = () => {
   ];
 
   return (
-    <section id="expertise" className="py-16 bg-muted-light/30">
-      <div className="container mx-auto px-6">
+    <section id="expertise" className="py-20 bg-muted-light/30">
+      <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="section-title">
             <span className="gradient-text">Expert Neurosurgical Care</span>
