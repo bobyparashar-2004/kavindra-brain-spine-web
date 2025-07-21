@@ -44,7 +44,7 @@ const Footer = () => {
             </div>
             
             <p className="text-primary-foreground/80 mb-6 leading-relaxed">
-              Expert brain and spine care in Narnaul with 9+ years of experience 
+              Expert brain and spine care in Narnaul with 9 years of experience 
               and 3,500+ successful surgeries. Your health is our priority.
             </p>
 
@@ -126,7 +126,7 @@ const Footer = () => {
                 <Clock className="w-5 h-5" />
                 <div>
                   <p className="font-medium">Clinic Hours</p>
-                  <p className="text-primary-foreground/80 text-sm">Mon-Sat: 9AM-6PM</p>
+                  <p className="text-primary-foreground/80 text-sm">Mon to Fri – 9:00 AM to 4:00 PM</p>
                 </div>
               </div>
 
@@ -181,6 +181,7 @@ const Footer = () => {
           <div className="mt-4 pt-4 border-t border-primary-foreground/20 text-center text-sm text-primary-foreground/60">
             <p>This website is for informational purposes only and does not constitute medical advice. 
                Always consult with a qualified healthcare provider for medical concerns.</p>
+            <p className="mt-2">Designed and Developed by Branding Pioneers</p>
           </div>
         </div>
       </div>

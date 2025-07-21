@@ -38,7 +38,7 @@ const StickyActions = () => {
         <div className="flex flex-col gap-3">
           <Button 
             size="lg" 
-            className="btn-primary shadow-xl rounded-full w-14 h-14 p-0 hover:scale-110 transition-all duration-300"
+            className="bg-white text-primary border-2 border-primary hover:bg-primary hover:text-white shadow-xl rounded-full w-14 h-14 p-0 hover:scale-110 transition-all duration-300"
             asChild
           >
             <a href="tel:+919548731761">
@@ -58,7 +58,7 @@ const StickyActions = () => {
           
           <Button 
             size="lg" 
-            className="btn-secondary shadow-xl rounded-full w-14 h-14 p-0 hover:scale-110 transition-all duration-300"
+            className="bg-white text-secondary border-2 border-secondary hover:bg-secondary hover:text-white shadow-xl rounded-full w-14 h-14 p-0 hover:scale-110 transition-all duration-300"
             asChild
           >
             <a href="#contact">

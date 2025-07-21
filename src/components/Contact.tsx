@@ -44,7 +44,7 @@ const Contact = () => {
     {
       icon: Clock,
       title: "Clinic Hours",
-      value: "Mon-Sat: 9:00 AM - 6:00 PM",
+      value: "Mon to Fri – 9:00 AM to 4:00 PM",
       action: "#",
       description: "Emergency services 24x7"
     }
@@ -61,8 +61,8 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="py-16 bg-background">
+      <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="section-title">
             <span className="gradient-text">Get In Touch</span>
@@ -89,9 +89,9 @@ const Contact = () => {
                       <p className="text-sm text-muted-foreground">{info.description}</p>
                       {info.action !== "#" && (
                         <Button 
-                          variant="ghost" 
+                          variant="outline" 
                           size="sm" 
-                          className="mt-2 p-0 h-auto text-primary hover:text-primary-dark"
+                          className="mt-2 bg-primary/10 border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground shadow-sm"
                           asChild
                         >
                           <a href={info.action}>
