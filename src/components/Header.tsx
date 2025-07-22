@@ -1,17 +1,19 @@
 import { useState } from "react";
 import { Menu, X, Phone, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Expertise", href: "#expertise" },
-    { name: "Patient Guide", href: "#patient-guide" },
-    { name: "Stories", href: "#testimonials" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/" },
+    { name: "About Dr", href: "/about" },
+    { name: "Services", href: "/services" },
+    { name: "Patient Guide", href: "/#patient-guide" },
+    { name: "Stories", href: "/#testimonials" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -31,7 +33,7 @@ const Header = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <div className="flex items-center gap-3">
+            <Link to="/" className="flex items-center gap-3">
               <img 
                 src="/lovable-uploads/9c589c52-9d81-48c8-843a-3762b7ce0c5b.png" 
                 alt="Dr. Kavindra Singh - Neurosurgeon Logo"
@@ -41,18 +43,28 @@ const Header = () => {
                 <span className="font-bold text-lg text-primary">Dr. Kavindra Singh</span>
                 <span className="text-xs text-muted-foreground">Brain & Spine Surgeon</span>
               </div>
-            </div>
+            </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-8">
               {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="nav-link"
-                >
-                  {item.name}
-                </a>
+                item.href.startsWith('/#') ? (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="nav-link"
+                  >
+                    {item.name}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className={`nav-link ${location.pathname === item.href ? 'text-primary font-medium' : ''}`}
+                  >
+                    {item.name}
+                  </Link>
+                )
               ))}
             </nav>
 
@@ -86,14 +98,25 @@ const Header = () => {
             <div className="lg:hidden border-t border-border py-4">
               <nav className="flex flex-col gap-4">
                 {navItems.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="nav-link py-2"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.name}
-                  </a>
+                  item.href.startsWith('/#') ? (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className="nav-link py-2"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.name}
+                    </a>
+                  ) : (
+                    <Link
+                      key={item.name}
+                      to={item.href}
+                      className={`nav-link py-2 ${location.pathname === item.href ? 'text-primary font-medium' : ''}`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  )
                 ))}
                 <div className="flex gap-3 pt-4">
                   <Button variant="outline" size="sm" asChild className="flex-1">
